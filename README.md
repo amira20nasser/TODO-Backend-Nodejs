@@ -4,19 +4,12 @@
 A RESTful API for managing todos with user authentication built using Node.js, Express, and MongoDB.
 
 ## Features
-
 - User authentication (signup, signin, signout)
 - JWT-based authorization with secure HTTP-only cookies
 - Todo management (create, update status, delete, get by ID)
 - User-specific todo lists with filtered views (all todos, remaining todos)
 - Password encryption with bcrypt
 - MongoDB database integration
-
-## Prerequisites
-
-- Node.js (v14+ recommended)
-- MongoDB (local instance or connection string)
-- npm or yarn
 
 ## Installation
 Create a `.env` file in the root directory with the following variables
