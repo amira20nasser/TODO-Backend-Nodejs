@@ -1,13 +1,19 @@
 const cookieParser = require("cookie-parser")
-const authRoutes = require("./routes/auth.routes");
 const express = require("express");
-const app = express();
+
 const {connectDB} = require("./config/connectDB")
+const authRoutes = require("./routes/auth.routes");
+const todoRoutes = require("./routes/todo.routes");
+
+const app = express();
 app.use(express.json())
 app.use(cookieParser())
-app.use("/api/auth",authRoutes)
 
-const PORT = 5000
+
+app.use("/",todoRoutes)
+app.use("/",authRoutes)
+
+const PORT = 3000
 connectDB().then(() => {
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 });
