@@ -12,8 +12,11 @@ const signUp = async (req,res) => {
     try{
         const { email, password, username } = req.body;
         console.log("Sign up....");
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ message: 'Email already exists' });
+        }
         const user = await User.create({username,email,password})
-        await user.save();
        return  res.status(201).send({
             status: 201,
             "success": true,
